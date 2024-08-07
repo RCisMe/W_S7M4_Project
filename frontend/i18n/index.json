@@ -1,32 +1,27 @@
 {
   "en": {
-    "TEXT_HEADING_CREATE_ACCOUNT": "Create an Account",
-    "TEXT_FAV_LANG_JS": "JavaScript",
-    "TEXT_FAV_LANG_RUST": "Rust",
-    "TEXT_OPT_FAV_FOOD_1": "-- Select favorite food --",
+    "TEXT_HEADING_CREATE_ACCOUNT": "Create Account",
+    "LABEL_USERNAME": "Username",
+    "PLACEHOLDER_USERNAME": "Enter your username",
+    "LABEL_FAV_FOOD": "Favorite Food",
+    "TEXT_OPT_FAV_FOOD_1": "Select your favorite food",
     "TEXT_OPT_FAV_FOOD_2": "Pizza",
     "TEXT_OPT_FAV_FOOD_3": "Spaghetti",
     "TEXT_OPT_FAV_FOOD_4": "Broccoli",
-    "TEXT_SUBMIT": "Send",
-    "TEXT_FAV_LANG": "Favorite language:",
-    "LABEL_USERNAME": "Username:",
-    "LABEL_FAV_FOOD": "Favorite food:",
-    "LABEL_ACCEPT_TERMS": "Agree to our terms",
-    "PLACEHOLDER_USERNAME": "Type username"
+    "LABEL_ACCEPT_TERMS": "I accept the terms and conditions",
+    "TEXT_SUBMIT": "Submit"
   },
   "esp": {
     "TEXT_HEADING_CREATE_ACCOUNT": "Crear Cuenta",
-    "TEXT_FAV_LANG_JS": "JavaScript",
-    "TEXT_FAV_LANG_RUST": "Rust",
-    "TEXT_OPT_FAV_FOOD_1": "-- Elija su plato favorito --",
+    "LABEL_USERNAME": "Nombre de usuario",
+    "PLACEHOLDER_USERNAME": "Ingrese su nombre de usuario",
+    "LABEL_FAV_FOOD": "Comida Favorita",
+    "TEXT_OPT_FAV_FOOD_1": "Seleccione su comida favorita",
     "TEXT_OPT_FAV_FOOD_2": "Pizza",
-    "TEXT_OPT_FAV_FOOD_3": "Espaguetis",
-    "TEXT_OPT_FAV_FOOD_4": "Brócolis",
-    "TEXT_SUBMIT": "Enviar",
-    "TEXT_FAV_LANG": "Lenguaje favorito:",
-    "LABEL_USERNAME": "Usuario",
-    "LABEL_FAV_FOOD": "Plato favorito:",
-    "LABEL_ACCEPT_TERMS": "Acepto condiciones",
-    "PLACEHOLDER_USERNAME": "Escriba usuario"
+    "TEXT_OPT_FAV_FOOD_3": "Espagueti",
+    "TEXT_OPT_FAV_FOOD_4": "Brócoli",
+    "LABEL_ACCEPT_TERMS": "Acepto los términos y condiciones",
+    "TEXT_SUBMIT": "Enviar"
   }
 }
+

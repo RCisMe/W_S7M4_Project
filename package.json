@@ -52,5 +52,8 @@
   "engines": {
     "node": ">=16.x",
     "npm": ">=8.x"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"]
   }
 }

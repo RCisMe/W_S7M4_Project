@@ -1,77 +1,110 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import App from './App'
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import App from './App';
+import i18n from '../i18n/index.json';
 
-describe('Module 4 Project Tests', () => {
-  describe('English Language', () => {
-    /*
-      👉 TASK 1
+describe('English language tests', () => {
+  beforeEach(() => {
+    render(<App />);
+  });
 
-      One test is done for you as an example.
-    */
-    test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
-      render(<App lang="en" />)
-      expect(screen.getByText("Create an Account")).toBeVisible()
-    })
-  })
-  describe('Spanish Language', () => {
-    /*
-      👉 TASK 3
+  test('renders heading', () => {
+    expect(screen.getByText(i18n.en.TEXT_HEADING_CREATE_ACCOUNT)).toBeInTheDocument();
+  });
 
-      This is done after making the UI multilingual.
-    */
-  })
-  describe('getEntriesByKeyPrefix', () => {
-    test('can extract the correct data', () => {
-    /*
-      👉 TASK 4 part 2
+  test('renders username label', () => {
+    expect(screen.getByLabelText(i18n.en.LABEL_USERNAME)).toBeInTheDocument();
+  });
 
-      Implement the function `getEntriesByKeyPrefix` below
-      and then come back here and write a few tests
-      to ensure it works as expected.
+  test('renders username placeholder', () => {
+    expect(screen.getByPlaceholderText(i18n.en.PLACEHOLDER_USERNAME)).toBeInTheDocument();
+  });
 
-      Although it should be noted that commonly,
-      the tests are written _before_ implementing
-      the function being tested.
-    */
-    })
-  })
-})
-function getEntriesByKeyPrefix(obj, keyPrefix) {
-  /*
-    👉 TASK 4 part 1
+  test('renders favorite food label', () => {
+    expect(screen.getByLabelText(i18n.en.LABEL_FAV_FOOD)).toBeInTheDocument();
+  });
 
-    Implement a function that takes as first argument an object `obj` such as this:
+  test('renders favorite food options', () => {
+    expect(screen.getByText(i18n.en.TEXT_OPT_FAV_FOOD_1)).toBeInTheDocument();
+    expect(screen.getByText(i18n.en.TEXT_OPT_FAV_FOOD_2)).toBeInTheDocument();
+    expect(screen.getByText(i18n.en.TEXT_OPT_FAV_FOOD_3)).toBeInTheDocument();
+    expect(screen.getByText(i18n.en.TEXT_OPT_FAV_FOOD_4)).toBeInTheDocument();
+  });
 
-    {
-      abc_1: "data_abc_1",
-      abc_2: "data_abc_2",
-      xyz_1: "data_xyz_1",
-      abc_3: "data_abc_3",
-    }
+  test('renders accept terms label', () => {
+    expect(screen.getByLabelText(i18n.en.LABEL_ACCEPT_TERMS)).toBeInTheDocument();
+  });
 
-    and takes as second argument a string `keyPrefix` such as this: "abc"
+  test('renders submit button', () => {
+    expect(screen.getByText(i18n.en.TEXT_SUBMIT)).toBeInTheDocument();
+  });
+});
 
-    and returns an array of arrays such as this (for the arguments given in the examples above):
+describe('Spanish language tests', () => {
+  beforeEach(() => {
+    render(<App />);
+    fireEvent.click(screen.getByText('🇪🇸')); // Toggle to Spanish
+  });
 
-    [
-      ["abc_1", "data_abc_1"],
-      ["abc_2", "data_abc_2"],
-      ["abc_3", "data_abc_3"],
-    ]
+  test('renders heading', () => {
+    expect(screen.getByText(i18n.esp.TEXT_HEADING_CREATE_ACCOUNT)).toBeInTheDocument();
+  });
 
-    If the function is passed the same `obj` as above but a `keyPrefix` of "xyz" then it would return:
+  test('renders username label', () => {
+    expect(screen.getByLabelText(i18n.esp.LABEL_USERNAME)).toBeInTheDocument();
+  });
 
-    [
-      ["xyz_1", "data_xyz_1"],
-    ]
+  test('renders username placeholder', () => {
+    expect(screen.getByPlaceholderText(i18n.esp.PLACEHOLDER_USERNAME)).toBeInTheDocument();
+  });
 
-    If the function is passed the same `obj` as above but a `keyPrefix` of "foo" then it would return the empty array.
+  test('renders favorite food label', () => {
+    expect(screen.getByLabelText(i18n.esp.LABEL_FAV_FOOD)).toBeInTheDocument();
+  });
 
-    The function looks inside the object `obj`, finds all properties whose property names begin
-    with the `keyPrefix` given (followed by an underscore), and reorganizes the information before returning it.
-    The properties that match the `keyPrefix` are returned inside an array holding key-value-pair sub-arrays.
+  test('renders favorite food options', () => {
+    expect(screen.getByText(i18n.esp.TEXT_OPT_FAV_FOOD_1)).toBeInTheDocument();
+    expect(screen.getByText(i18n.esp.TEXT_OPT_FAV_FOOD_2)).toBeInTheDocument();
+    expect(screen.getByText(i18n.esp.TEXT_OPT_FAV_FOOD_3)).toBeInTheDocument();
+    expect(screen.getByText(i18n.esp.TEXT_OPT_FAV_FOOD_4)).toBeInTheDocument();
+  });
 
-  */
-}
+  test('renders accept terms label', () => {
+    expect(screen.getByLabelText(i18n.esp.LABEL_ACCEPT_TERMS)).toBeInTheDocument();
+  });
+
+  test('renders submit button', () => {
+    expect(screen.getByText(i18n.esp.TEXT_SUBMIT)).toBe
+
+    // helper.js
+export const getEntriesByKeyPrefix = (obj, prefix) => {
+  return Object.keys(obj)
+    .filter((key) => key.startsWith(prefix))
+    .reduce((res, key) => {
+      res[key] = obj[key];
+      return res;
+    }, {});
+};
+
+
+// helper.test.js
+import { getEntriesByKeyPrefix } from './helper';
+
+describe('getEntriesByKeyPrefix', () => {
+  test('returns correct entries', () => {
+    const obj = {
+      'prefix_key1': 'value1',
+      'prefix_key2': 'value2',
+      'other_key': 'value3',
+    };
+
+    const result = getEntriesByKeyPrefix(obj, 'prefix');
+    expect(result).toEqual({
+      'prefix_key1': 'value1',
+      'prefix_key2': 'value2',
+    });
+  });
+
+  // Add more tests as needed
+});
+

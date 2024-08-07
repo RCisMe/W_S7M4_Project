@@ -26,13 +26,13 @@ To successfully complete this project, you will need the following technical kno
 
 **Here are the steps to set up this project:**
 
-1. Clone this repository to your computer.
+- 1. Clone this repository to your computer.
 
-2. Within your terminal, navigate to the project folder and execute `npm install`.
+- 2. Within your terminal, navigate to the project folder and execute `npm install`.
 
-3. After successful installation execute `npm run dev` and, in a different terminal, `npm test`.
+- 3. After successful installation execute `npm run dev` and, in a different terminal, `npm test`.
 
-4. You will load the app in Chrome by navigating the browser to `http://localhost:3003`.
+- 4. You will load the app in Chrome by navigating the browser to `http://localhost:3003`.
 
 **❗ Note:** On the event of NPM errors during setup, delete the `node_modules` folder and the `package-lock.json` file, and retry `npm i` and `npm run dev`.
 

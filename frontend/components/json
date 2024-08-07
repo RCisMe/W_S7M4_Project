@@ -1,0 +1,16 @@
+{
+  "en": {
+    "heading": "Welcome",
+    "buttonText": "Submit",
+    "inputLabel": "Name",
+    "inputPlaceholder": "Enter your name"
+  },
+  "esp": {
+    "heading": "Bienvenido",
+    "buttonText": "Enviar",
+    "inputLabel": "Nombre",
+    "inputPlaceholder": "Escriba su nombre"
+  }
+}
+
+
